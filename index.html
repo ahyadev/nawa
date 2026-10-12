@@ -45,8 +45,17 @@
         <a href="travel.html" class="hover:text-gold-400">Daftar Travel</a>
         <a href="#konsultasi" class="bg-gold-500 hover:bg-gold-600 px-5 py-2 rounded-full font-semibold">Konsultasi</a>
       </nav>
-      <a href="#konsultasi" class="md:hidden bg-gold-500 px-4 py-2 rounded-full text-sm font-semibold">Konsultasi</a>
+      <button id="menu-btn" type="button" aria-label="Buka menu" aria-expanded="false" class="md:hidden p-2 -mr-2">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
     </div>
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-nawa-800 px-4 py-3 flex flex-col text-sm font-medium">
+      <a href="#perbedaan" class="py-3">Perbedaan</a>
+      <a href="#peran" class="py-3">Peran</a>
+      <a href="#cara-kerja" class="py-3">Cara Kerja</a>
+      <a href="travel.html" class="py-3">Daftar Travel</a>
+      <a href="#konsultasi" class="mt-2 mb-1 bg-gold-500 text-center py-3 rounded-full font-semibold">Konsultasi</a>
+    </nav>
   </header>
 
   <!-- Hero -->
@@ -55,7 +64,7 @@
     <div class="absolute inset-0 bg-gradient-to-b from-nawa-900/80 via-nawa-800/70 to-nawa-800/95"></div>
     <div class="relative max-w-6xl mx-auto px-4 py-28 md:py-40 text-center">
       <span class="inline-block bg-gold-500 text-white font-semibold px-6 py-2 rounded-full text-sm tracking-wide">APA BEDANYA</span>
-      <h1 class="font-serif font-bold text-4xl md:text-6xl leading-tight mt-6">NAWA Dengan <br class="md:hidden">TRAVEL?</h1>
+      <h1 class="font-serif font-bold text-4xl sm:text-5xl md:text-6xl leading-tight mt-6">NAWA Dengan <br class="md:hidden">TRAVEL?</h1>
       <p class="mt-6 text-lg md:text-xl text-white/90 max-w-2xl mx-auto">Kenali perbedaannya sebelum Anda memilih perjalanan Umroh.</p>
       <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
         <a href="#konsultasi" class="bg-gold-500 hover:bg-gold-600 px-8 py-3.5 rounded-full font-semibold shadow-lg">DM dan Konsultasi sekarang!</a>
@@ -191,5 +200,14 @@
     </div>
   </footer>
 
+
+  <script>
+    const btn = document.getElementById('menu-btn'), menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => {
+      const open = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', open);
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+  </script>
 </body>
 </html>
